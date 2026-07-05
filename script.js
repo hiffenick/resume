@@ -162,7 +162,7 @@ function initScrollProgress() {
 ----------------------------------------------------------------- */
 function initHero() {
   const lines = document.querySelectorAll('.hero__title .split-line');
-  const split = new SplitType(lines, { types: 'words' });
+  const split = new SplitType(lines, { types: 'words', tagName: 'span' });
 
   gsap.set(split.words, { yPercent: 120, opacity: 0 });
   gsap.set('.hero__eyebrow, .hero__sub, .hero__cta, .hero__scroll-cue', { opacity: 0, y: 20 });
