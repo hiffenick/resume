@@ -5,6 +5,31 @@
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
+/* -----------------------------------------------------------------
+   0. SAFETY NET
+   If GSAP/ScrollTrigger/Lenis fail to load (blocked network, ad
+   blocker, slow connection) or anything below throws, this guarantees
+   the loader disappears and all content becomes visible regardless.
+   Runs on a short timer AND is cancelled once real init succeeds.
+----------------------------------------------------------------- */
+function forceReveal() {
+  document.querySelectorAll('.reveal-up').forEach((el) => {
+    el.style.opacity = '1';
+    el.style.transform = 'none';
+  });
+  document.querySelectorAll('.hero__eyebrow, .hero__sub, .hero__cta, .hero__scroll-cue, .hero__title .word')
+    .forEach((el) => { el.style.opacity = '1'; el.style.transform = 'none'; });
+  const loaderEl = document.getElementById('loader');
+  if (loaderEl) loaderEl.style.display = 'none';
+}
+
+const safetyTimer = setTimeout(forceReveal, 3500);
+
+if (typeof gsap === 'undefined') {
+  // GSAP itself never arrived — reveal immediately, skip all animation setup below.
+  forceReveal();
+} else {
+
 gsap.registerPlugin(ScrollTrigger);
 
 /* -----------------------------------------------------------------
@@ -48,6 +73,7 @@ function runLoader() {
 ----------------------------------------------------------------- */
 let lenis;
 function initLenis() {
+  if (typeof Lenis === 'undefined') return; // CDN didn't load — page still scrolls natively, just not "smoothed"
   lenis = new Lenis({
     duration: 1.1,
     easing: (t) => 1 - Math.pow(1 - t, 3),
@@ -160,16 +186,28 @@ function initScrollProgress() {
 /* -----------------------------------------------------------------
    7. HERO — split text stagger reveal + parallax blobs
 ----------------------------------------------------------------- */
+function splitIntoWords(lineEl) {
+  const text = lineEl.textContent.trim();
+  const words = text.split(/\s+/);
+  lineEl.innerHTML = words
+    .map((w) => `<span class="word-mask"><span class="word">${w}</span></span>`)
+    .join(' ');
+  return lineEl.querySelectorAll('.word');
+}
+
 function initHero() {
   const lines = document.querySelectorAll('.hero__title .split-line');
-  const split = new SplitType(lines, { types: 'words', tagName: 'span' });
+  let words = [];
+  lines.forEach((line) => {
+    words = words.concat(Array.from(splitIntoWords(line)));
+  });
 
-  gsap.set(split.words, { yPercent: 120, opacity: 0 });
+  gsap.set(words, { yPercent: 120, opacity: 0 });
   gsap.set('.hero__eyebrow, .hero__sub, .hero__cta, .hero__scroll-cue', { opacity: 0, y: 20 });
 
   const tl = gsap.timeline({ delay: 0.2 });
   tl.to('.hero__eyebrow', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' })
-    .to(split.words, {
+    .to(words, {
       yPercent: 0, opacity: 1, duration: 0.9, ease: 'power3.out', stagger: 0.035
     }, '-=0.3')
     .to('.hero__sub', { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.4')
@@ -289,17 +327,26 @@ function initBurger() {
    INIT
 ----------------------------------------------------------------- */
 (async function init() {
-  initNav();
-  initScrollProgress();
-  initReveals();
-  initCounters();
-  initTimeline();
-  initCardTilt();
-  initMagnetic();
-  initCursor();
-  initBurger();
+  try {
+    initNav();
+    initScrollProgress();
+    initReveals();
+    initCounters();
+    initTimeline();
+    initCardTilt();
+    initMagnetic();
+    initCursor();
+    initBurger();
 
-  await runLoader();
-  initLenis();
-  initHero();
+    await runLoader();
+    initLenis();
+    initHero();
+
+    clearTimeout(safetyTimer); // real init succeeded — no need for the fallback
+  } catch (err) {
+    console.error('Portfolio animation init failed, falling back to static view:', err);
+    forceReveal();
+  }
 })();
+
+} // end of "if (typeof gsap !== 'undefined')" guard from top of file

@@ -308,7 +308,7 @@ ul { list-style: none; }
   justify-content: center;
   max-width: var(--container);
   margin: 0 auto;
-  padding: 96px 24px 0;
+  padding: 0 24px;
   position: relative;
   z-index: 2;
 }
@@ -330,8 +330,9 @@ ul { list-style: none; }
   margin-bottom: 32px;
 }
 .hero__title .split-line { display: block; overflow: hidden; }
+.hero__title .word-mask { display: inline-block; overflow: hidden; }
 .hero__title .word { display: inline-block; }
-
+.hero__title--accent .word,
 .hero__title--accent {
   background: var(--grad-1);
   -webkit-background-clip: text;
