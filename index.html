@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nikhil Kamthe — Backend Software Engineer</title>
+<meta name="description" content="Nikhil Kamthe — Backend-focused Software Engineer building full-stack Flask applications: Scan2Dine, Xpenso, and more. Based in Pune, India.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Nikhil Kamthe — Backend Software Engineer">
+<meta property="og:description" content="Backend-focused Software Engineer building full-stack Flask applications.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/images/og-cover.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nikhil Kamthe — Backend Software Engineer">
+<meta name="twitter:description" content="Backend-focused Software Engineer building full-stack Flask applications.">
+
+<!-- Favicon placeholder -->
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Nikhil Lalsab Kamthe",
+  "url": "https://github.com/hiffenick",
+  "jobTitle": "Software Engineer",
+  "address": { "@type": "PostalAddress", "addressLocality": "Pune", "addressCountry": "IN" },
+  "sameAs": [
+    "https://github.com/hiffenick",
+    "https://www.linkedin.com/in/nikhil-kamthe-440655408/"
+  ]
+}
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ LOADING SCREEN ============ -->
+<div id="loader" class="loader" aria-hidden="true">
+  <div class="loader__mark">NK</div>
+  <div class="loader__bar-track"><div class="loader__bar" id="loaderBar"></div></div>
+  <div class="loader__pct" id="loaderPct">0%</div>
+</div>
+
+<!-- ============ CUSTOM CURSOR ============ -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ============ BACKGROUND LAYERS ============ -->
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-noise" aria-hidden="true"></div>
+<div class="bg-blobs" aria-hidden="true">
+  <div class="blob blob--blue"></div>
+  <div class="blob blob--violet"></div>
+  <div class="blob blob--cyan"></div>
+</div>
+
+<!-- ============ SCROLL PROGRESS ============ -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ============ NAVIGATION ============ -->
+<header class="nav" id="nav">
+  <a href="#top" class="nav__logo">NK<span class="nav__logo-dot">.</span></a>
+  <nav class="nav__links" id="navLinks">
+    <a href="#about" data-nav="about">About</a>
+    <a href="#skills" data-nav="skills">Skills</a>
+    <a href="#projects" data-nav="projects">Projects</a>
+    <a href="#journey" data-nav="journey">Journey</a>
+    <a href="#contact" data-nav="contact">Contact</a>
+  </nav>
+  <a href="#contact" class="btn btn--ghost nav__cta magnetic">Let's talk</a>
+  <button class="nav__burger" id="navBurger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
+    <p class="hero__eyebrow reveal-up">Pune, India — Open to Software Engineer roles</p>
+    <h1 class="hero__title">
+      <span class="split-line">Backend engineer.</span>
+      <span class="split-line">Ships things that</span>
+      <span class="split-line hero__title--accent">actually stay up.</span>
+    </h1>
+    <p class="hero__sub reveal-up">
+      I'm Nikhil — I design, build, and deploy full-stack Flask systems, from database
+      schema to production incident response. Three shipped projects. Zero fake metrics.
+    </p>
+    <div class="hero__cta reveal-up">
+      <a href="#projects" class="btn btn--primary magnetic">View projects</a>
+      <a href="assets/Nikhil_Kamthe_Resume.pdf" class="btn btn--ghost magnetic" download>Download résumé</a>
+    </div>
+    <div class="hero__scroll-cue reveal-up" aria-hidden="true">
+      <span></span> Scroll
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section" id="about">
+    <div class="section__head">
+      <span class="section__eyebrow">01 — About</span>
+      <h2 class="section__title">I like systems that don't fall over.</h2>
+    </div>
+    <div class="about__grid">
+      <div class="about__copy reveal-up">
+        <p>
+          I'm a final-year Computer Science student at Savitribai Phule Pune University,
+          currently sitting at an 8.39 CGPA — but the more honest measure of what I know
+          is the three production Flask applications I've built, broken, and fixed since.
+        </p>
+        <p>
+          My focus is backend engineering: schema design, authentication flows, session
+          management, and the unglamorous work of replacing infrastructure that doesn't
+          fit anymore — like tearing Redis out of two separate projects and rebuilding
+          the logic on Flask sessions and TTL-backed database models without downtime.
+        </p>
+        <p>
+          I care about code that a stranger could debug at 2am. That means readable
+          commits, tests that actually run, and admitting what I don't know yet.
+        </p>
+      </div>
+      <div class="about__stats">
+        <div class="stat-card reveal-up">
+          <span class="stat-card__num" data-count="3">0</span>
+          <span class="stat-card__label">Full-stack apps shipped</span>
+        </div>
+        <div class="stat-card reveal-up">
+          <span class="stat-card__num" data-count="14">0</span>
+          <span class="stat-card__label">Selenium tests written</span>
+        </div>
+        <div class="stat-card reveal-up">
+          <span class="stat-card__num" data-count="8" data-decimal="39">0</span>
+          <span class="stat-card__label">Current CGPA / 10</span>
+        </div>
+        <div class="stat-card reveal-up">
+          <span class="stat-card__num" data-count="2">0</span>
+          <span class="stat-card__label">Redis migrations survived</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section class="section" id="skills">
+    <div class="section__head">
+      <span class="section__eyebrow">02 — Stack</span>
+      <h2 class="section__title">What I build with.</h2>
+    </div>
+    <div class="skills__grid">
+      <div class="skill-group reveal-up">
+        <h3>Languages</h3>
+        <div class="chip-row">
+          <span class="chip">Python</span><span class="chip">Java</span><span class="chip">C</span>
+          <span class="chip">JavaScript</span><span class="chip">SQL</span><span class="chip">HTML</span><span class="chip">CSS</span>
+        </div>
+      </div>
+      <div class="skill-group reveal-up">
+        <h3>Frameworks &amp; Libraries</h3>
+        <div class="chip-row">
+          <span class="chip">Flask</span><span class="chip">Jinja2</span><span class="chip">SQLAlchemy</span>
+          <span class="chip">WTForms</span><span class="chip">Bootstrap</span>
+        </div>
+      </div>
+      <div class="skill-group reveal-up">
+        <h3>Databases</h3>
+        <div class="chip-row">
+          <span class="chip">PostgreSQL</span><span class="chip">MSSQL</span><span class="chip">SQLite</span>
+        </div>
+      </div>
+      <div class="skill-group reveal-up">
+        <h3>Tools &amp; Platforms</h3>
+        <div class="chip-row">
+          <span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Docker</span>
+          <span class="chip">Railway</span><span class="chip">Vercel</span><span class="chip">Postman</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section class="section" id="projects">
+    <div class="section__head">
+      <span class="section__eyebrow">03 — Projects</span>
+      <h2 class="section__title">Three shipped. Zero placeholders.</h2>
+    </div>
+
+    <div class="projects__list">
+
+      <article class="project-card reveal-up">
+        <div class="project-card__media" aria-hidden="true">
+          <div class="project-card__glow project-card__glow--blue"></div>
+          <span class="project-card__tag">01</span>
+        </div>
+        <div class="project-card__body">
+          <h3>Scan2Dine</h3>
+          <p class="project-card__role">QR-based restaurant ordering platform</p>
+          <p class="project-card__desc">
+            A full-stack ordering system where customers scan a table's QR code to browse
+            the live menu, order, and track status — while admins manage tables, payments,
+            and orders from a real-time dashboard. Originally built on Redis for table
+            locking and cart state; I rebuilt both onto a TTL-backed database model and
+            Flask sessions after diagnosing a silent 500 error in production.
+          </p>
+          <div class="chip-row chip-row--mono">
+            <span class="chip chip--mono">Flask</span><span class="chip chip--mono">SQLAlchemy</span>
+            <span class="chip chip--mono">PostgreSQL/MSSQL</span><span class="chip chip--mono">JS</span>
+            <span class="chip chip--mono">Railway</span>
+          </div>
+          <div class="project-card__actions">
+            <a href="https://github.com/hiffenick/scan2dine" target="_blank" rel="noopener" class="btn btn--sm btn--ghost magnetic">GitHub</a>
+            <a href="https://scan2dine.up.railway.app" target="_blank" rel="noopener" class="btn btn--sm btn--primary magnetic">Live demo</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reveal-up">
+        <div class="project-card__media" aria-hidden="true">
+          <div class="project-card__glow project-card__glow--violet"></div>
+          <span class="project-card__tag">02</span>
+        </div>
+        <div class="project-card__body">
+          <h3>Xpenso</h3>
+          <p class="project-card__role">Personal expense management system</p>
+          <p class="project-card__desc">
+            A personal finance tracker with budget categories, a rollover system, and
+            arc-gauge visual indicators for spending against monthly limits. Secured
+            with TOTP authenticator-based two-factor verification for sensitive account
+            actions, tested with a 14-case Selenium suite, and migrated from MSSQL to
+            PostgreSQL for a clean Railway deployment.
+          </p>
+          <div class="chip-row chip-row--mono">
+            <span class="chip chip--mono">Flask</span><span class="chip chip--mono">SQLAlchemy</span>
+            <span class="chip chip--mono">PostgreSQL</span><span class="chip chip--mono">Selenium</span>
+            <span class="chip chip--mono">Railway</span>
+          </div>
+          <div class="project-card__actions">
+            <a href="https://github.com/hiffenick/track-expenses-app" target="_blank" rel="noopener" class="btn btn--sm btn--ghost magnetic">GitHub</a>
+            <a href="https://xpenso.up.railway.app/" target="_blank" rel="noopener" class="btn btn--sm btn--primary magnetic">Live demo</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reveal-up">
+        <div class="project-card__media" aria-hidden="true">
+          <div class="project-card__glow project-card__glow--cyan"></div>
+          <span class="project-card__tag">03</span>
+        </div>
+        <div class="project-card__body">
+          <h3>AlkaArjun Karate Academy</h3>
+          <p class="project-card__role">Responsive business website</p>
+          <p class="project-card__desc">
+            A mobile-first informational site for a local martial arts academy —
+            class schedules, training programs, and a photo gallery, built to help
+            a small business look credible online.
+          </p>
+          <div class="chip-row chip-row--mono">
+            <span class="chip chip--mono">HTML</span><span class="chip chip--mono">CSS</span>
+            <span class="chip chip--mono">JavaScript</span><span class="chip chip--mono">Bootstrap</span>
+            <span class="chip chip--mono">Vercel</span>
+          </div>
+          <div class="project-card__actions">
+            <a href="https://alkaarjun.vercel.app/" target="_blank" rel="noopener" class="btn btn--sm btn--primary magnetic">Live demo</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ JOURNEY (signature section) ============ -->
+  <section class="section" id="journey">
+    <div class="section__head">
+      <span class="section__eyebrow">04 — Journey</span>
+      <h2 class="section__title">How I got here.</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline__line" aria-hidden="true"><div class="timeline__line-fill" id="timelineFill"></div></div>
+
+      <div class="timeline__item reveal-up">
+        <div class="timeline__dot"></div>
+        <div class="timeline__content">
+          <span class="timeline__date">Year 1</span>
+          <h4>Started learning Python</h4>
+          <p>First real programming language — the start of everything below.</p>
+        </div>
+      </div>
+
+      <div class="timeline__item reveal-up">
+        <div class="timeline__dot"></div>
+        <div class="timeline__content">
+          <span class="timeline__date">Early build</span>
+          <h4>Built Xpenso</h4>
+          <p>My first serious Flask app — expense tracking with a real auth system and a UI I actually cared about.</p>
+        </div>
+      </div>
+
+      <div class="timeline__item reveal-up">
+        <div class="timeline__dot"></div>
+        <div class="timeline__content">
+          <span class="timeline__date">Scaling up</span>
+          <h4>Built Scan2Dine</h4>
+          <p>A multi-role system — customer ordering, admin dashboard, and infrastructure decisions like replacing Redis with a custom locking model.</p>
+        </div>
+      </div>
+
+      <div class="timeline__item reveal-up">
+        <div class="timeline__dot"></div>
+        <div class="timeline__content">
+          <span class="timeline__date">Shipped</span>
+          <h4>Deployed three projects to production</h4>
+          <p>Railway, Vercel — real URLs, real users, real bugs to fix.</p>
+        </div>
+      </div>
+
+      <div class="timeline__item reveal-up">
+        <div class="timeline__dot"></div>
+        <div class="timeline__content">
+          <span class="timeline__date">2026</span>
+          <h4>Graduating</h4>
+          <p>B.Sc. Computer Science, Savitribai Phule Pune University.</p>
+        </div>
+      </div>
+
+      <div class="timeline__item reveal-up timeline__item--future">
+        <div class="timeline__dot timeline__dot--future"></div>
+        <div class="timeline__content">
+          <span class="timeline__date">Next</span>
+          <h4>Looking for my first Software Engineer role</h4>
+          <p>Where I can keep doing this — with a team, on a bigger system.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION + ACHIEVEMENTS + LEARNING ============ -->
+  <section class="section" id="more">
+    <div class="more__grid">
+
+      <div class="more-card reveal-up">
+        <span class="section__eyebrow">Education</span>
+        <h3>B.Sc. Computer Science</h3>
+        <p class="more-card__sub">Kaveri College of Arts, Science and Commerce<br>Savitribai Phule Pune University</p>
+        <div class="more-card__row"><span>Expected</span><strong>2026</strong></div>
+        <div class="more-card__row"><span>CGPA</span><strong>8.39 / 10</strong></div>
+      </div>
+
+      <div class="more-card reveal-up">
+        <span class="section__eyebrow">Currently learning</span>
+        <h3>Filling the gaps</h3>
+        <div class="chip-row">
+          <span class="chip">Operating Systems</span><span class="chip">Computer Networks</span>
+          <span class="chip">AI / ML</span><span class="chip">Java</span>
+        </div>
+      </div>
+
+      <div class="more-card reveal-up">
+        <span class="section__eyebrow">GitHub activity</span>
+        <h3>@hiffenick</h3>
+        <img
+          class="more-card__ghstats"
+          src="https://github-readme-stats.vercel.app/api?username=hiffenick&show_icons=true&theme=transparent&hide_border=true&title_color=4d7fff&icon_color=8b5cf6&text_color=e8e8ec"
+          alt="GitHub stats for hiffenick"
+          loading="lazy"
+          width="100%">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section section--contact" id="contact">
+    <div class="contact">
+      <span class="section__eyebrow">05 — Contact</span>
+      <h2 class="contact__title">Let's build something that stays up.</h2>
+      <p class="contact__sub">Open to Software Engineer, Backend, and Full-Stack roles. Based in Pune, India — happy to relocate or work remote.</p>
+      <div class="contact__links">
+        <a href="mailto:kamthenikhil654@gmail.com" class="btn btn--primary magnetic">kamthenikhil654@gmail.com</a>
+      </div>
+      <div class="contact__social">
+        <a href="https://github.com/hiffenick" target="_blank" rel="noopener" class="magnetic">GitHub</a>
+        <a href="https://www.linkedin.com/in/nikhil-kamthe-440655408/" target="_blank" rel="noopener" class="magnetic">LinkedIn</a>
+        <a href="tel:+919371783881" class="magnetic">+91 93717 83881</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Designed &amp; built by Nikhil Kamthe · <span id="year"></span></p>
+</footer>
+
+<!-- ============ SCRIPTS ============ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="https://unpkg.com/split-type@0.3.4/umd/index.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
