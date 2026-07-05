@@ -330,6 +330,8 @@ ul { list-style: none; }
   margin-bottom: 32px;
 }
 .hero__title .split-line { display: block; overflow: hidden; }
+.hero__title .word { display: inline-block; }
+
 .hero__title--accent {
   background: var(--grad-1);
   -webkit-background-clip: text;
