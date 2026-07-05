@@ -308,7 +308,7 @@ ul { list-style: none; }
   justify-content: center;
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 96px 24px 0;
   position: relative;
   z-index: 2;
 }
